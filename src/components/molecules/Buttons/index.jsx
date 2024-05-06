@@ -14,10 +14,11 @@ function Switcher() {
     setDarkMode(checked)
   }
 
+
   return (
     <div className="flex items-center w-fit cursor-pointer" onClick={toggleDarkMode}>
       <div className="flex items-center justify-center w-6">
-        {darkMode ? ICONS.theme.light : ICONS.theme.dark}
+        {ICONS.theme.simple}
       </div>
     </div>
   )
