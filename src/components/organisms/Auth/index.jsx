@@ -3,12 +3,10 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { signInWithEmailAndPassword, getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { collection, getDocs, getFirestore, doc, setDoc, orderBy, query } from "firebase/firestore"
-
-import { app } from "../../../services/firebase/config"
-import GetDate from "../../../Utils/GetDate"
-import { ICONS } from "../../../assets/icons"
-
+import { app } from "@/services/firebase/config"
+import GetDate from "@/utils/GetDate"
 import Log from "@/components/templates/Log"
+import { ICONS } from "@/assets/icons"
 
 const auth = getAuth(app)
 const db = getFirestore(app)
@@ -88,7 +86,7 @@ function Login() {
     <Log>
       <section className="w-full flex flex-col justify-center items-center h-screen">
         <article className='w-full md:w-1/2 flex justify-center items-center max-w-[420px] z-[2]'>
-          <article className="rounded-md w-full py-8 px-4 flex flex-col justify-center items-center bg-midnight dark:bg-blueAlternative">
+          <article className="rounded-md w-full py-8 px-4 flex flex-col justify-center items-center bg-purple-900 dark:bg-blueAlternative">
             <form onSubmit={submitHandler} className="w-full">
               {/* <Link href={'/'} className="cursor-pointer">
                 <i className='mx-auto flex items-center justify-center w-[50px] h-[50px]'>
@@ -96,18 +94,18 @@ function Login() {
                 </i>
               </Link> */}
               <Link href={'/'} className="cursor-pointer flex flex-col items-center mb-6 text-blueBtc dark:text-whiteAlternative">
-                <hgroup className="text-8xl flex items-center">
+                <hgroup className="text-8xl flex items-center bg-red-100">
                   <i className='mx-auto flex items-center justify-center mt-6 mr-1 w-[50px] h-[50px]'>
-                    {ICONS.logo.btc}
+                    {ICONS.logo.camtlead}
                   </i>
                   <h1>btc</h1>
                 </hgroup>
                 <p className="text-xxs uppercase flex gap-[1px]">
-                  Congress
-                  <i className="text-redBtc">•</i>
-                  Conventions
-                  <i className="text-redBtc">•</i>
-                  Events
+                  Blogs
+                  <i className="">•</i>
+                  Portafolios
+                  <i className="">•</i>
+                  Presentación
                 </p>
               </Link>
               {/* <hgroup className='flex flex-col justify-center items-center mb-6'>
@@ -129,7 +127,7 @@ function Login() {
                 <input
                   required
                   placeholder="Correo Electrónico:"
-                  className={(error && ' form-control-empty ') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                  className={(error && ' form-control-empty ') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                   id="email" type="email" name="email"
                 />
               </div>
@@ -137,7 +135,7 @@ function Login() {
                 <input
                   required
                   placeholder="Contraseña:"
-                  className={(error && ' form-control-empty ') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                  className={(error && ' form-control-empty ') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                   id="password" type="password" name="password"
                 />
                 <a
@@ -156,12 +154,12 @@ function Login() {
                 errorPassword &&
                 <span className='text-xs text-red-700'>La contraseña es incorrecta.</span>
               }
-              <Link href={'/contacto'} className="w-full flex justify-center py-2 text-blueLight hover:text-[#00D8FF]">
+              <Link href={'/contacto'} className="w-full flex justify-center py-2 text-purple-50 hover:text-[#00D8FF]">
                 ¿Olvidaste tu contraseña?
               </Link>
 
               <input
-                className="mt-2 rounded-md text-base p-2 w-full flex items-center flex-wrap justify-center cursor-pointer font-semibold animate-fadeIn--bg-blue text-[#00091d] bg-blueLight hover:bg-[#6EC093]"
+                className="mt-2 rounded-md text-base p-2 w-full flex items-center flex-wrap justify-center cursor-pointer font-semibold animate-fadeIn--bg-blue text-[#00091d] bg-purple-50 hover:bg-[#6EC093]"
                 type="submit" value="Iniciar Sesión"
                 onSubmit={submitHandler}
               />
@@ -175,7 +173,7 @@ function Login() {
               `
 						.no-focus {
 							outline: none;
-							background: #f000;
+							background: #8b1fff47;
 						}
 
             .no-focus:focus {
@@ -320,7 +318,6 @@ function Register() {
     console.log('userAvailable: ', userAvailable)
   }
 
-
   /**
    *
    * @param {*} e Log up with Email and and Password
@@ -445,7 +442,7 @@ function Register() {
               <div className="rounded-md w-full px-4 md:w-1/2 xl:w-1/3 flex flex-col justify-center items-center bg-whiteAlternative dark:bg-blueAlternative">
                 <h1 className="py-2 text-3xl text-dark">Importante</h1>
                 <p className="text-xl text-center py-2 text-dark">Por favor recargue la página.</p>
-                <p className="text-xl text-center py-2 text-blueLight">Si el problema persiste, es probable que se inició sesión sin antes haberse registrado, por favor de clic en el botón de
+                <p className="text-xl text-center py-2 text-purple-50">Si el problema persiste, es probable que se inició sesión sin antes haberse registrado, por favor de clic en el botón de
                   <span className="text-dark animate-pulse px-1" onClick={LogOut}>
                     cerrar sesión
                   </span>
@@ -458,21 +455,20 @@ function Register() {
             <article className='rounded-md w-full py-8 px-4 flex flex-col justify-center items-center bg-whiteAlternative dark:bg-blueAlternative'>
               <Link href={'/'} className="cursor-pointer flex flex-col items-center text-blue dark:text-whiteAlternative">
                 <hgroup className="text-8xl flex items-center">
-                  <i className='mx-auto flex items-center justify-center mt-6 mr-1 w-[50px] h-[50px]'>
-                    {ICONS.logo.btc}
+                  <i className='mx-auto flex items-center justify-center mt-6 mr-1 w-[222px] h-[96px]'>
+                    {ICONS.logo.camtlead}
                   </i>
-                  <h1>btc</h1>
                 </hgroup>
-                <p className="text-xxs uppercase flex gap-[1px]">
-                  Congress
-                  <i className="text-redBtc">•</i>
-                  Conventions
-                  <i className="text-redBtc">•</i>
-                  Events
+                <p className="text-sm uppercase flex gap-[1px] text-purple-50">
+                  Blogs
+                  <i className="mr-[2px]">•</i>
+                  Portafolios
+                  <i className="mr-[2px]">•</i>
+                  News
                 </p>
               </Link>
-              <hgroup className='flex flex-col justify-center items-center'>
-                <p className="text-xl font-medium text-center p-2 text-whiteAlternative">Regístrate y Accede a la App Web</p>
+              <hgroup className='flex flex-col justify-center items-center text-purple-50'>
+                <p className="text-xl font-medium text-center py-4 px-2 text-whiteAlternative">Regístrate y Accede a la App Web</p>
               </hgroup>
 
               <form onSubmit={submitHandler} className="w-full">
@@ -494,11 +490,11 @@ function Register() {
                     <input
                       required
                       placeholder="Nombre(s):"
-                      className={(minDisplayName && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                      className={(minDisplayName && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                       id="firstName" type="text" name="firstName"
                     />
                     {minDisplayName &&
-                      <span className='text-xs text-blueLight'>Agrega tu nombre completo.</span>
+                      <span className='text-xs text-purple-50'>Agrega tu nombre completo.</span>
                     }
                   </div>
                   {/* Last Name */}
@@ -506,11 +502,11 @@ function Register() {
                     <input
                       required
                       placeholder="Apellidos:"
-                      className={(minDisplayName && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                      className={(minDisplayName && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                       id="lastName" type="text" name="lastName"
                     />
                     {minDisplayName &&
-                      <span className='text-xs text-blueLight'>Agrega tu apellido completo.</span>
+                      <span className='text-xs text-purple-50'>Agrega tu apellido completo.</span>
                     }
                   </div>
                 </div>
@@ -522,7 +518,7 @@ function Register() {
                       required
                       //onChange={handleChange}
                       placeholder={`Usuario:`}
-                      className={(minUserName || !available && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                      className={(minUserName || !available && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                       type="text"
                       id="username"
                       name="username"
@@ -532,7 +528,7 @@ function Register() {
                   <div className='mt-2 w-[49.666%]'>
                     <select
                       required
-                      className={(minEmail && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus py-[10px] p-2 rounded-md text-blueLight`}
+                      className={(minEmail && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus py-[10px] p-2 rounded-md text-purple-50`}
                       id="gender" type="gender" name="gender">
                       <option value="male">Masculino</option>
                       <option value="female">Femenino</option>
@@ -541,7 +537,7 @@ function Register() {
                   </div>
                 </div>
                 {minUserName &&
-                  <span className='text-xs text-blueLight'>Tu nombre de usuario debe tener un mínimo de 6 caracteres.</span>
+                  <span className='text-xs text-purple-50'>Tu nombre de usuario debe tener un mínimo de 6 caracteres.</span>
                 }
                 {!available &&
                   <span className='text-xs text-red-400'>Este nombre de usuario no está disponible.</span>
@@ -552,12 +548,12 @@ function Register() {
                   <input
                     required
                     placeholder="Correo electrónico:"
-                    className={(minEmail && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                    className={(minEmail && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                     id="email" type="email" name="email"
                     pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]{2,16}"
                   />
                   {minEmail &&
-                    <span className='text-xs text-blueLight'>Agrega un correo válido.</span>
+                    <span className='text-xs text-purple-50'>Agrega un correo válido.</span>
                   }
                 </div>
                 {/* Password */}
@@ -565,7 +561,7 @@ function Register() {
                   <input
                     required
                     placeholder="Contraseña:"
-                    className={(minCharacter && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-midnight no-focus p-2 rounded-md text-blueLight`}
+                    className={(minCharacter && 'form-control-empty') + ` focus:outline-none w-full border-[1px] border-purple-900 dark:border-purple-550 no-focus p-2 rounded-md text-purple-50`}
                     id="password" type="password" name="password"
                   />
                   <a
@@ -578,11 +574,11 @@ function Register() {
                 </div>
                 {
                   minCharacter &&
-                  <span className='text-xs pr-1 text-blueLight'>La contraseña debe tener mínimo 8 caracteres.</span>
+                  <span className='text-xs pr-1 text-purple-50'>La contraseña debe tener mínimo 8 caracteres.</span>
                 }
                 {
                   character &&
-                  <span className='text-xs pr-1 text-blueLight'>La contraseña debe tener caracteres especiales, numeros y letras, adempas de por lo menos una letra mayúscula.</span>
+                  <span className='text-xs pr-1 text-purple-50'>La contraseña debe tener caracteres especiales, numeros y letras, adempas de por lo menos una letra mayúscula.</span>
                 }
                 {
                   error &&
@@ -590,16 +586,16 @@ function Register() {
                 }
 
                 <input
-                  className="mt-2 rounded-md text-base p-2 w-full flex items-center flex-wrap justify-center cursor-pointer font-semibold animate-fadeIn--bg-blue text-[#00091d] bg-blueLight hover:bg-[#6EC093]"
+                  className="mt-2 rounded-md text-base p-2 w-full flex items-center flex-wrap justify-center cursor-pointer font-semibold animate-fadeIn--bg-blue text-purple-50 bg-purple-900 dark:bg-purple-550 hover:bg-purple-800"
                   type="submit"
                   value="REGISTRARSE"
                   onSubmit={submitHandler}
                 />
 
-                {/* <div className="relative pb-5 text-center text-2xl text-blueLight">
-                <span className="border-b-2 mr-[3px] px-20 md:px-16 border-blueLight"></span>
+                {/* <div className="relative pb-5 text-center text-2xl text-purple-50">
+                <span className="border-b-2 mr-[3px] px-20 md:px-16 border-purple-50"></span>
                 <span className="mt-3 absolute">o</span>
-                <span className="border-b-2 ml-[17px] px-20 md:px-16 border-blueLight"></span>
+                <span className="border-b-2 ml-[17px] px-20 md:px-16 border-purple-50"></span>
               </div> */}
 
                 {/* <button
@@ -615,7 +611,7 @@ function Register() {
                 Registrarse con Google
               </button> */}
 
-                <p className="text-center py-2 text-blueLight ">
+                <p className="text-center py-2 text-purple-50 ">
                   Al registrarte, aceptas nuestras
                   <a href="#" className="hover:text-[#00D8FF]"> Condiciones</a> así como la <a href="#" className="hover:text-[#00D8FF]"> Política de Privacidad</a>.
                 </p>
@@ -632,7 +628,7 @@ function Register() {
               `
 						.no-focus {
 							outline: none;
-							background: #f000;
+							background: #8b1fff47;
 						}
 
             .no-focus:focus {

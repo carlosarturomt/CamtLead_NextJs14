@@ -5,6 +5,7 @@ import { Switcher } from "@/components/molecules/Buttons"
 import useWindowSize from "@/hooks/useWindowSize"
 import { ICONS } from "@/assets/icons"
 import './navigationStyles.scss'
+import ActiveLink from "@/components/molecules/Links"
 
 export default function Navigation() {
   const size = useWindowSize()
@@ -23,28 +24,18 @@ export default function Navigation() {
   return (
     <footer className="navigation_bottom">
       <nav className='navigation_bottom-nav'>
-        <Link href="/" className="h-6">
-          {ICONS.home.rect}
-        </Link>
-
-        <Link href="/search" className="h-6">
-          {ICONS.search.rect}
-        </Link>
+        <ActiveLink href={'/'} active={ICONS.home.fill} inactive={ICONS.home.rect} />
+        <ActiveLink href={'/search'} active={ICONS.search.fill} inactive={ICONS.search.rect} />
 
         <button onClick={() => setOpenNav((prev) => !prev)}>
-          <span className='logo border-l-2 border-r-2 border-purple-300 dark:border-purple-550'
+          <span className='logo border-t-2 border-b-2 border-purple-300 dark:border-purple-550'
           >
             {ICONS.logo.camt}
           </span>
         </button>
 
-        <Link href="/alert" className="h-6">
-          {ICONS.alert.rect}
-        </Link>
-
-        <Link href="/user" className="h-6">
-          {ICONS.user.rect}
-        </Link>
+        <ActiveLink href={'/alert'} active={ICONS.alert.fill} inactive={ICONS.alert.rect} />
+        <ActiveLink href={'/user'} active={ICONS.user.fill} inactive={ICONS.user.rect} />
       </nav>
 
       <ul className='navigation_bottom-float'>

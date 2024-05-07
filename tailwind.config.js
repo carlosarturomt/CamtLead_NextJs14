@@ -19,6 +19,9 @@ module.exports = {
           1000: '#0d0319'
         }
       },
+      fontSize: {
+        xxs: '0.7rem'
+      },
       letterSpacing: {
         xl: '.25em'
       }

@@ -35,6 +35,24 @@ export function GroupPolylinePath(props) {
   )
 }
 
+export function GroupPolylinePolygone(props) {
+  const [fillColor, setFillColor] = useState(props.fill)
+  const [colorTheme] = useDarkMode()
+
+  useEffect(() => {
+    if (colorTheme == 'light') {
+      setFillColor('#0d0319')
+    }
+  }, [colorTheme])
+
+  return (
+    <g>
+      <polyline points={props.pointsPolyline} fill={fillColor} stroke-width="0" />
+      <polygon points={props.pointsPolygon} fill={fillColor} stroke-width="0" />
+    </g>
+  )
+}
+
 export function GroupReact(props) {
   const [fillColor, setFillColor] = useState(props.fill)
   const [colorTheme] = useDarkMode()
@@ -59,35 +77,50 @@ export function GroupReact(props) {
 
 export const ICONS = {
   logo: {
-    camt: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.15 199.81">
-      <g>
-        <GroupPolylinePath
-          points='98.09 .57 86.49 .57 .24 44.01 .24 55.52 98.23 12.49'
-          d='M.14,44.01v11.66l85.49,43.02c4.15,0,8.3.02,12.46.02,0-3.71.11-8,.11-11.71C65.55,72.48,32.79,58.54.14,44.01Z'
-          fill='#8b1fff'
-        />
-        <GroupPolylinePath
-          points='200.15 98.86 200.15 87.16 156.37 .1 144.76 .1 188.14 99'
-          d='M156.37,0h-11.75l-43.36,86.28c0,4.19-.02,8.38-.02,12.57,3.74,0,8.06.11,11.8.11,14.64-32.95,28.7-66.01,43.34-98.97Z'
-          fill='#8b1fff'
-        />
-        <GroupReact
-          points='98.09 .57 86.49 .57 .24 44.01 .24 55.52 98.23 12.49'
-          d='M.14,44.01v11.66l85.49,43.02c4.15,0,8.3.02,12.46.02,0-3.71.11-8,.11-11.71C65.55,72.48,32.79,58.54.14,44.01Z'
-          fill='#8b1fff'
-        />
-        <GroupReact
-          x="144.84" y="101" width="11.77" height="98.64"
-          x2="144.48" y2="101" width2="11.77" height2="98.64" transform2="translate(-.27 300.37) rotate(-89.88)"
-          fill='#8b1fff'
-        />
-        <GroupReact
-          x="11.72" y="101.6" width="11.72" height="98.2"
-          x2="43.61" y2="113.26" width2="11.72" height2="74.72"
-          x3="75.21" y3="101.6" width3="11.72" height3="98.2"
-          x4="43.26" y4="101.52" width4="11.72" height4="98.2" transform4="translate(-101.61 199.42) rotate(-89.88)"
-          fill='#8b1fff'
-        />
+    camt: <svg id="Capa_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170.73 172.27">
+      <g id="camt">
+        <g id="logo-parts_copia">
+          <GroupPolylinePolygone pointsPolyline="81 9.16 81.12 .23 70.87 0 0 35.44 0 44.96" pointsPolygon=".16 35.44 0 44.96 70.34 80.64 80.1 80.77 80.12 70.89 .16 35.44" fill='#8b1fff' />
+          <GroupPolylinePolygone pointsPolyline="161.71 80.71 170.63 80.71 170.73 70.45 134.34 .06 124.83 .19" pointsPolygon="134.35 .22 124.83 .19 90.09 70.99 90.09 80.76 99.97 80.65 134.35 .22" fill='#8b1fff' />
+          <GroupReact
+            x="9.61" y="91.57" width="9.61" height="80.52"
+            x2="35.76" y2="101.31" width2="9.61" height2="61.38"
+            x3="61.67" y3="91.57" width3="9.61" height3="80.52"
+            x4="35.47" y4="91.5" width4="9.61" height4="80.52" transform4="translate(-91.58 171.76) rotate(-89.88)"
+            fill='#8b1fff'
+          />
+          <GroupReact
+            x="125.9" y="91.74" width="9.61" height="80.52"
+            x2="125.61" y2="91.74" width2="9.61" height2="80.52" transform2="translate(-1.87 262.13) rotate(-89.88)"
+            fill='#8b1fff'
+          />
+        </g>
+      </g>
+    </svg>,
+    camtlead: <svg id="Capa_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248.68 99.09">
+      <g id="amea">
+        <polyline points="141.27 46.68 146.44 46.68 146.49 40.74 125.43 0 119.93 .07" fill="#fff" stroke-width="0" />
+        <polygon points="125.44 .09 119.93 .07 99.82 41.06 99.82 46.71 105.54 46.64 125.44 .09" fill="#fff" stroke-width="0" />
+        <rect x="157.61" y=".09" width="5.56" height="46.61" fill="#fff" stroke-width="0" />
+        <rect x="172.75" y="5.73" width="5.56" height="35.53" fill="#fff" stroke-width="0" />
+        <rect x="187.75" y=".09" width="5.56" height="46.61" fill="#fff" stroke-width="0" />
+        <rect x="172.58" y=".05" width="5.56" height="46.61" transform="translate(151.64 198.66) rotate(-89.88)" fill="#fff" stroke-width="0" />
+        <rect x="120.35" y="52.43" width="5.56" height="46.61" transform="translate(47.13 198.7) rotate(-89.88)" fill="#fff" stroke-width="0" />
+        <rect x="120.4" y="67.25" width="5.56" height="46.61" transform="translate(32.38 213.54) rotate(-89.88)" fill="#fff" stroke-width="0" />
+        <rect x="120.35" y="37.62" width="5.56" height="46.61" transform="translate(61.95 183.92) rotate(-89.88)" fill="#fff" stroke-width="0" />
+        <polyline points="193.64 99.06 198.81 99.06 198.87 93.12 177.81 52.38 172.3 52.45" fill="#fff" stroke-width="0" />
+        <polygon points="177.81 52.47 172.3 52.45 152.19 93.44 152.19 99.09 157.91 99.02 177.81 52.47" fill="#fff" stroke-width="0" />
+      </g>
+      <g id="c_icon">
+        <polyline points="96.79 11.03 96.94 .36 84.68 .09 0 42.44 0 53.81" fill="#fff" stroke-width="0" />
+        <polygon points=".19 42.44 0 53.81 84.05 96.45 95.71 96.6 95.74 84.79 .19 42.44" fill="#fff" stroke-width="0" />
+      </g>
+      <g id="d_icon">
+        <polyline points="202.07 99.07 207.58 99.07 248.63 78.4 248.63 72.92 202 93.4" fill="#fff" stroke-width="0" /><path d="M248.68,78.4v-5.55s-40.68-20.47-40.68-20.47c-1.98,0-3.95,0-5.93-.01,0,1.76-.05,3.81-.05,5.57,15.54,6.91,31.13,13.55,46.66,20.46Z" fill="#fff" stroke-width="0" />
+      </g>
+      <g id="t_icon">
+        <rect x="222.56" y=".02" width="5.56" height="46.63" fill="#fff" stroke-width="0" />
+        <rect x="222.39" y=".02" width="5.56" height="46.63" transform="translate(201.35 248.46) rotate(-89.88)" fill="#fff" stroke-width="0" />
       </g>
     </svg>
   },
