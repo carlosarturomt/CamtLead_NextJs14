@@ -86,7 +86,7 @@ function Login() {
     <Log>
       <section className="w-full flex flex-col justify-center items-center h-screen">
         <article className='w-full md:w-1/2 flex justify-center items-center max-w-[420px] z-[2]'>
-          <article className="rounded-md w-full py-8 px-4 flex flex-col justify-center items-center bg-purple-900 dark:bg-blueAlternative">
+          <article className="rounded-md w-full py-8 px-4 flex flex-col justify-center items-center">
             <form onSubmit={submitHandler} className="w-full">
               {/* <Link href={'/'} className="cursor-pointer">
                 <i className='mx-auto flex items-center justify-center w-[50px] h-[50px]'>
@@ -439,7 +439,7 @@ function Register() {
         <article className='w-full md:w-2/3 flex justify-center items-center max-w-[720px] z-[2]'>
           {user ?
             <section className='w-full flex flex-col justify-center items-center'>
-              <div className="rounded-md w-full px-4 md:w-1/2 xl:w-1/3 flex flex-col justify-center items-center bg-whiteAlternative dark:bg-blueAlternative">
+              <div className="rounded-md w-full px-4 md:w-1/2 xl:w-1/3 flex flex-col justify-center items-center">
                 <h1 className="py-2 text-3xl text-dark">Importante</h1>
                 <p className="text-xl text-center py-2 text-dark">Por favor recargue la página.</p>
                 <p className="text-xl text-center py-2 text-purple-50">Si el problema persiste, es probable que se inició sesión sin antes haberse registrado, por favor de clic en el botón de
@@ -452,7 +452,7 @@ function Register() {
               </div>
             </section>
             :
-            <article className='rounded-md w-full py-8 px-4 flex flex-col justify-center items-center bg-whiteAlternative dark:bg-blueAlternative'>
+            <article className='rounded-md w-full py-8 px-4 flex flex-col justify-center items-center'>
               <Link href={'/'} className="cursor-pointer flex flex-col items-center text-blue dark:text-whiteAlternative">
                 <hgroup className="text-8xl flex items-center">
                   <i className='mx-auto flex items-center justify-center mt-6 mr-1 w-[222px] h-[96px]'>

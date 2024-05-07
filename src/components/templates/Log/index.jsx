@@ -12,7 +12,7 @@ export default function Log(props) {
       {context.user ? (
         <Home />
       ) : (
-        <section className="w-full flex flex-col justify-center items-center h-screen dark:bg-[#00091d]">
+        <section className="w-full flex flex-col justify-center items-center h-screen">
           <div className="w-full flex flex-col justify-center items-center mb-14">
             {props.children}
           </div>
